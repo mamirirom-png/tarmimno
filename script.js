@@ -313,3 +313,39 @@ img.src="assets/default-image.png";
 });
 
 });
+// Contact Form Send To WhatsApp
+
+const contactForm = document.querySelector("#contact-form");
+
+if(contactForm){
+
+contactForm.addEventListener("submit",(e)=>{
+
+e.preventDefault();
+
+const name = document.querySelector("#name").value;
+const phone = document.querySelector("#phone").value;
+const message = document.querySelector("#message").value;
+
+
+const whatsappText =
+`سلام ترمیم‌نو
+نام: ${name}
+شماره تماس: ${phone}
+
+پیام:
+${message}`;
+
+
+const whatsappNumber = "989918782001";
+
+const url = 
+"https://wa.me/" + whatsappNumber + 
+"?text=" + encodeURIComponent(whatsappText);
+
+
+window.open(url,"_blank");
+
+});
+
+}
